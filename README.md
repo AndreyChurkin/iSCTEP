@@ -2,7 +2,6 @@
 Interpretable Security-Constrained Transmission Expansion Planning
 
 
-<img src="C5_scheme.png" alt="C5 scheme" width="500">
 
 <div style="display: flex; gap: 40px;">
     <img src="C5_violin_plots.png" alt="Image 1" width="500">
