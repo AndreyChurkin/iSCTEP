@@ -16,8 +16,8 @@ function unbindvariables()
 end
 
 # # Define case study:
-# filename = "input_data/C5.ods"
-filename = "input_data/C5_RES.ods"
+filename = "input_data/C5.ods"
+# filename = "input_data/C5_RES.ods"
 
 
 # # OPF modelling options:
@@ -26,12 +26,12 @@ OPF_opt = 0 # single-period SCACOPF
 
 # # Objective function options:
 # Obj_f_opt = 0 # original total cost minimisation objective: gen cost + load curtailment + flex cost
-# Obj_f_opt = 1 # minimise load curtailment only
-Obj_f_opt = 2 #  total expected cost (stochastic optimisation): 0.95 notmal state + 0.05*(1/nSc) contingency states
+Obj_f_opt = 1 # minimise load curtailment only
+# Obj_f_opt = 2 #  total expected cost (stochastic optimisation): 0.95 notmal state + 0.05*(1/nSc) contingency states
 
 # # Investment modelling options:
-# Inv_opt = 0 # original AC SCOPF model - new lines and flexibility providers are added as input parameters
-Inv_opt = 1 # investment options are explicitly formulated as variables in the optimisation model
+Inv_opt = 0 # original AC SCOPF model - new lines and flexibility providers are added as input parameters
+# Inv_opt = 1 # investment options are explicitly formulated as variables in the optimisation model
 
 
 
@@ -304,10 +304,10 @@ end
 
 ## Save coalitional analysis results to JLD
 # using JLD
-# save("coalitional_analysis_output_C5_RES_operation_test3.jld"
+# save("coalitional_analysis_output_C5_test_results.jld"
 #      , "Vfunction_max_plc",Vfunction_max_plc
 #      , "Vfunction_max_qlc",Vfunction_max_qlc
-#      , "Vfunction_avoided_cost",Vfunction_avoided_cost
+#     #  , "Vfunction_avoided_cost",Vfunction_avoided_cost
 #      , "coalition_term_status",coalition_term_status
 #      , "coalition_elapsed_time",coalition_elapsed_time
 # )
@@ -341,7 +341,7 @@ size=(2000,2000),
 # xlim=(0,60),ylim=(0,20000),
 alpha = 0.3,
 xtickfontsize=30,ytickfontsize=30,xguidefontsize=30,legendfontsize=30,
-xlabel="x",
+xlabel="Investment options (players)",
 foreground_color_legend = nothing, legend = false,
 framestyle=:box, margin=20mm, left_margin=50mm, minorgrid=:true)
 
@@ -357,7 +357,8 @@ y = -MC_full*sbase
 viloin_color = :grey
 
 # plot_scale = 1/10^4
-plot_scale = 1/10^2
+# plot_scale = 1/10^2
+plot_scale = 1
 
 y = y*plot_scale # for nice C5 case plots
 
@@ -395,7 +396,7 @@ plt = violin(collect(1:nPl)',y,
     #   xlim=(0,nPl+1),
       # ylim = (0,maximum(time_records_loops)),
     #   ylim = (0,160),
-      xlabel = "x", ylabel = "y",
+      xlabel = "Investment options (players)", ylabel = "Value",
       xtickfontsize = 30, ytickfontsize = 30, xguidefontsize = 30, yguidefontsize = 30, legendfontsize = 30,
       foreground_color_legend = nothing, legend = false,
       framestyle = :box, margin = 20mm, left_margin = 50mm, yminorgrid = :true,

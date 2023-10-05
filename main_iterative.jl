@@ -196,6 +196,11 @@ elseif Obj_f_opt == 1
 elseif Obj_f_opt == 2
       println("Obj_f_opt = 2 (total expected cost - stochastic optimisation)")
 end
+if Inv_opt == 0 
+      println("Inv_opt = 0 (investments are added as input parameters)")
+else
+      println("Inv_opt = 1 (investments are explicitly formulated as variables)")
+end
 println("Objective value: ",JuMP.objective_value(model_name))
 println("Max load P curtailment: ",maximum(active_load_curt[1]))
 println("Max load Q curtailment: ",maximum(reactive_load_curt[1]))

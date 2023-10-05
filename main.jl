@@ -21,14 +21,14 @@ show(pwd());
 # filename = "input_data/case_template_port_modified_R1.ods"
 # filename = "input_data/case60_bus_new_wind.ods"
 # filename = "input_data/C60.ods"
-# filename = "input_data/C5.ods"
+filename = "input_data/C5.ods"
 # filename = "input_data/C5_RES.ods"
 # filename = "input_data/HR.ods"
 # filename = "input_data/PT.ods"
 # filename = "input_data/UK.ods"
 # filename = "input_data/UK_2.ods"
 # filename = "input_data/UK_2_test.ods"
-filename = "input_data/UK_2_test_RES.ods"
+# filename = "input_data/UK_2_test_RES.ods"
 
 
 # # OPF modelling options:
@@ -37,12 +37,12 @@ OPF_opt = 0 # single-period SCACOPF
 
 # # Objective function options:
 # Obj_f_opt = 0 # original total cost minimisation objective: gen cost + load curtailment + flex cost
-# Obj_f_opt = 1 # minimise load curtailment only
-Obj_f_opt = 2 #  total expected cost (stochastic optimisation): 0.95 notmal state + 0.05*(1/nSc) contingency states
+Obj_f_opt = 1 # minimise load curtailment only
+# Obj_f_opt = 2 #  total expected cost (stochastic optimisation): 0.95 notmal state + 0.05*(1/nSc) contingency states
 
 # # Investment modelling options:
-# Inv_opt = 0 # original AC SCOPF model - new lines and flexibility providers are added as input parameters
-Inv_opt = 1 # investment options are explicitly formulated as variables in the optimisation model
+Inv_opt = 0 # original AC SCOPF model - new lines and flexibility providers are added as input parameters
+# Inv_opt = 1 # investment options are explicitly formulated as variables in the optimisation model
 
 
 
@@ -143,6 +143,12 @@ if Obj_f_opt == 0
 elseif Obj_f_opt == 1
       println("Obj_f_opt = 1 (load curtailment optimisation)")
 end
+if Inv_opt == 0 
+      println("Inv_opt = 0 (investments are added as input parameters)")
+else
+      println("Inv_opt = 1 (investments are explicitly formulated as variables)")
+end
+
 println("Objective value: ",JuMP.objective_value(model_name))
 println("Max load P curtailment: ",maximum(active_load_curt[1]))
 println("Max load Q curtailment: ",maximum(reactive_load_curt[1]))
