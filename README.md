@@ -16,21 +16,20 @@ To avoid potential load curtailment, it is necessary to upgrade the system and s
 
 Using traditional network planning models, the system planner can find a single optimal solution, e.g., a cost-minimising investment portfolio. However, a single solution is not sufficient to interpret the value of flexibility in the considered planning problem. To deal with planning uncertainties, the system planner needs to prioritise the investment options and address the following questions before accepting the optimal expansion plan. How do flexibility providers contribute to avoiding potential load curtailment and reducing the total expected system cost? How effective are flexibility investments compared to line reinforcement? Which investment options jointly contribute to the defined objectives and thus have the highest synergistic capabilities in SCTEP? 
 
-To address these questions and provide additional information for the system planner, **i-SCTEP** tool formulates a cooperative game among the 8 investment options and estimates their contributions to 2<sup>8</sup>=256 coalitions.
-
-
+To address these questions and provide additional information for the system planner, **i-SCTEP** tool formulates a cooperative game among the 8 investment options with 2<sup>8</sup>=256 possible coalitions. For each coalition, maximum avoided load curtailment and total expected cost reduction are estimated to characterise its value. Then, the marginal contributions of players (investment options) are calculated and the Shapley value is computed to represent the weighted average contribution to all possible coalitions. The results are presented below as violin plots showing the distribution of the players' marginal contributions:
 
 <div style="display: flex; gap: 40px;">
-    <img src="C5_violin_plots.png" alt="Image 1" width="500">
-    <img src="C5_violin_plots_cost.png" alt="Image 2" width="500">
+    <img src="C5_violin_plots.png" alt="Violin plot 1" width="500">
+    <img src="C5_violin_plots_cost.png" alt="Violin plot 2" width="500">
 </div>
 
+In this illustrative example, reinforcement of line 1-4 appears to be the best investment option with the highest synergistic capability, that is, the largest contributions in combination with other investments. Thus, this line should be given priority in the system expansion planning. A more detailed discussion of the results, as well as a larger case study, can be found in [2].
 
 ### RUNNING THE TOOL:
 
-
+To be added......
 
 ### REFERENCES:
 [1] M. I. Alizadeh, M. Usman, and F. Capitanescu, “Envisioning security control in renewable dominated power systems through stochastic multiperiod AC security constrained optimal power flow,” International Journal of Electrical Power & Energy Systems, vol. 139, 2022
 
-[2] ... reference to be added...
+[2] Reference to be added......
